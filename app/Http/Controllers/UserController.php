@@ -32,12 +32,16 @@ class UserController extends Controller
 
   public function postSignIn(Request $request)
   {
-    $data = $request->only('email', 'password');
+    return "hae";
 
-    if (\Auth::attempt($data));
+    $userdata = array(
+      'email' => Input::get('email'),
+      'password' => Input::get('password')
+    );
+
+    if (Auth::attempt($userdata))
     {
-      return 'is Logged in';
-      return redirect()->route('dashboard');
+      redirect()->route('dashboard');
     }
     return redirect()->back()->withInput();
   }
