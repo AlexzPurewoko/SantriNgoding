@@ -6,7 +6,7 @@ Login Page
 @section('konten')
 <!-- Basic layout-->
 <div class="col-tengah-50">
-  <form action="{{ route('signin') }}" class="form-horizontal">
+  <form action="{{ route('signin') }}" class="form-horizontal" method="post">
     <div class="panel panel-flat">
       <div class="panel-heading">
         <h5 class="panel-title">LOGIN</h5>

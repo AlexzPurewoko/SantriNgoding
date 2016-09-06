@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
+use App;
 
 class UserController extends Controller
 {
@@ -30,20 +31,18 @@ class UserController extends Controller
     return redirect()->route('dashboard');
   }
 
-  public function postSignIn(Request $request)
-  {
-    return "hae";
+  public function postSignIn(Request $request){
 
     $userdata = array(
-      'email' => Input::get('email'),
-      'password' => Input::get('password')
+    'email' => $request->get('email'),
+    'password' => $request->get('password')
     );
 
     if (Auth::attempt($userdata))
     {
-      redirect()->route('dashboard');
+      return redirect()->route('dashboard');
     }
-    return redirect()->back()->withInput();
+
   }
 
 }
