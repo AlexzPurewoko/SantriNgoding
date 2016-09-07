@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,11 +11,12 @@ use App;
 
 class UserController extends Controller
 {
-  public function getDashboard()
-  {
-    return view('dashboard');
-  }
+  protected $userModel;
 
+  public function __construct(User $users)
+  {
+    $this->userModel = $users;
+  }
   public function postSignUp(Request $request)
   {
     $nama = $request['nama'];
@@ -28,7 +30,7 @@ class UserController extends Controller
 
     $user->save();
 
-    return redirect()->route('dashboard');
+    return redirect()->route('signin');
   }
 
   public function postSignIn(Request $request){
@@ -43,6 +45,11 @@ class UserController extends Controller
       return redirect()->route('dashboard');
     }
 
+  }
+  public function getDashboard(Request $request)
+  {
+    $users = $this->userModel->all();
+    return view('dashboard', ['data' => $users]);
   }
 
 }

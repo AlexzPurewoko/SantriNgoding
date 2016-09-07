@@ -248,6 +248,7 @@ th {
   .table {
     border-collapse: collapse !important;
   }
+  
   .table td,
   .table th {
     background-color: #fff !important;
@@ -2097,6 +2098,7 @@ pre code {
   }
   .col-lg-12 {
     width: 100%;
+    margin: auto;
   }
   .col-lg-11 {
     width: 91.66666667%;
@@ -2112,6 +2114,7 @@ pre code {
   }
   .col-lg-7 {
     width: 58.33333333%;
+    margin: auto;
   }
   .col-lg-6 {
     width: 50%;
@@ -5439,6 +5442,7 @@ button.list-group-item-danger.active:focus {
   border-radius: 3px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+
 }
 .panel-body {
   padding: 20px;
