@@ -5,36 +5,40 @@ Login Page
 
 @section('konten')
 <!-- Basic layout-->
-<div class="col-tengah-50">
-  <form action="{{ route('signin') }}" class="form-horizontal" method="post">
-    <div class="panel panel-flat">
-      <div class="panel-heading">
-        <h5 class="panel-title">LOGIN</h5>
-      </div>
 
-      <div class="panel-body">
-        <div class="form-group">
-          <label class="col-lg-3 control-label">Email</label>
-          <div class="col-lg-9">
-            <input type="text" class="form-control" name="email" id="email">
-          </div>
-        </div>
 
-        <div class="form-group">
-          <label class="col-lg-3 control-label">Password</label>
-          <div class="col-lg-9">
-            <input class="form-control" type="password" name="password" id="password">
-          </div>
-        </div>
+  <div class="login-container">
+		<form action="{{ route('signin') }}" method="post">
+			<div class="panel panel-body login-form">
+				<div class="text-center">
+					<div class="icon-object border-slate-300 text-slate-300"><i class="icon-reading"></i></div>
+						<h5 class="content-group">Login to your account <small class="display-block">Enter your credentials below</small></h5>
+				</div>
 
-        <div class="text-right">
-          <button type="submit" class="btn btn-primary">Login<i class="icon-arrow-right14 position-right"></i></button>
+				<div class="form-group has-feedback has-feedback-left">
+					<input type="text" class="form-control" placeholder="Email" name="email" id="email">
+					<div class="form-control-feedback">
+						<i class="icon-user text-muted"></i>
+					</div>
+				</div>
+
+				<div class="form-group has-feedback has-feedback-left">
+					<input type="text" class="form-control" placeholder="Password" name="password" id="password">
+					<div class="form-control-feedback">
+						<i class="icon-lock2 text-muted"></i>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary btn-block">Sign in <i class="icon-circle-right2 position-right"></i></button>
           <input type="hidden" name="_token" value="{{ Session::token() }}">
-        </div>
-      </div>
-    </div>
-    {{ csrf_field() }}
-  </form>
-</div>
-<!-- /basic layout -->
+          {{ csrf_field() }}
+				</div>
+
+				<div class="text-center">
+					<a href="login_password_recover.html">Forgot password?</a>
+				</div>
+			</div>
+		</form>
+  </div>
 @endsection

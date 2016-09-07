@@ -1,91 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway';
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    <a href="{{ url('/login') }}">Login</a>
-                    <a href="{{ url('/register') }}">Register</a>
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+@extends('layout.master')
+@section('nav-right')
+  <p class="navbar-text"><a href="{{ route('signin') }}" class="label bg-success-400">Sign In</a></p>
+@endsection
+@section('konten')
+  <div class="col-lg-12">
+    <form action="{{ route('signup') }}" method="post" class="col-lg12">
+      <div class="panel panel-body login-form col-tengah-80">
+        <div class="text-center">
+          <div class="icon-object border-success text-success"><i class="icon-plus3"></i></div>
+          <h5 class="content-group">Create account <small class="display-block">All fields are required</small></h5>
         </div>
-    </body>
-</html>
+
+        <div class="content-divider text-muted form-group"><span>Your credentials</span></div>
+
+        <div class="form-group has-feedback has-feedback-left">
+          <input type="text" class="form-control" placeholder="Full Name" name="nama" id="nama">
+          <div class="form-control-feedback">
+            <i class="icon-user-check text-muted"></i>
+          </div>
+        </div>
+
+        <div class="content-divider text-muted form-group"><span>Your privacy</span></div>
+
+        <div class="form-group has-feedback has-feedback-left">
+          <input type="text" class="form-control" placeholder="Your email" name="email" id="email">
+          <div class="form-control-feedback">
+            <i class="icon-mention text-muted"></i>
+          </div>
+        </div>
+
+        <div class="form-group has-feedback has-feedback-left">
+          <input type="password" class="form-control" placeholder="Create password" name="password" id="password" >
+          <div class="form-control-feedback">
+            <i class="icon-user-lock text-muted"></i>
+          </div>
+        </div>
+
+        <button type="submit" class="btn bg-teal btn-block btn-lg">Register <i class="icon-circle-right2 position-right"></i></button>
+      </div>
+      <input type="hidden" name="_token" value="{{ Session::token() }}">
+        {{ csrf_field() }}
+    </form>
+  </div>
+@endsection

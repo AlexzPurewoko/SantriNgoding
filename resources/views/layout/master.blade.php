@@ -35,7 +35,7 @@
 					<div class="row">
 
 							@yield('konten')
-						
+
 					</div>
 					<!-- /main charts -->
 
