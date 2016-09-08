@@ -18,7 +18,7 @@
       <li class="active">Dashboard</li>
     </ul>
 
-    <ul class="breadcrumb-elements">
+    <!-- <ul class="breadcrumb-elements">
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
           <i class="icon-gear position-left"></i>
@@ -35,6 +35,7 @@
         </ul>
       </li>
     </ul>
+  -->
   </div>
 </div>
 <!-- /page header -->

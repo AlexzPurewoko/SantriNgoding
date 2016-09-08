@@ -39,6 +39,15 @@ Dashboard Page
             <tr>
               <td>{{ $user->nama }}</td>
               <td>{{ $user->email }}</td>
+              <td>
+                 {{-- <i class="glyphicon glyphicon-th-list"></i> --}}
+
+                 <form class="" action="{{ route('delete', $user->id) }}" method="post">{{ method_field('Delete') }}
+                  <button type="submit" class="btn-primary btn"><i class="glyphicon glyphicon-trash"></i></button>
+                   <input type="hidden" name="_token" value="{{ Session::token() }}">
+                   {{ csrf_field() }}
+						    </form>
+               </td>
             </tr>
           </tbody>
         @endforeach

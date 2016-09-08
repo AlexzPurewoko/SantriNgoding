@@ -47,7 +47,7 @@ Login Page
 				</div>
 
 				<div class="text-center">
-					<a href="login_password_recover.html">Forgot password?</a>
+					Need an account? <a href="{{ route('signup') }}">Sign up</a>
 				</div>
 			</div>
 		</form>

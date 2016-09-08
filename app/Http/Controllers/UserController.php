@@ -73,4 +73,12 @@ public function welcome()
     Session::flush();
     return redirect()->route('home');
   }
+  public function delete(Request $request, $id)
+  {
+    $users = User::where('id', $id)->first();
+    if ($users) {
+      $users->delete();
+      return redirect()->route('dashboard');
+    }
+  }
 }

@@ -28,9 +28,13 @@ Route::group(['middleware' => ['web']], function(){
     'middleware' => 'auth'
   ]);
 
+  Route::get('admin', ['middleware' => 'admin', function(){
+    echo "admin";
+  }]);
+
   Route::get('logout', [
     'uses' => 'UserController@logout',
     'as' => 'logout'
   ]);
-  
+  Route::delete('/delete/{id}',['uses'=>'UserController@delete', 'as'=>'delete']);
 });
