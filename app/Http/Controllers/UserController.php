@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Session;
 use DB;
 use App\User;
 use Illuminate\Http\Request;
@@ -17,6 +18,11 @@ class UserController extends Controller
   {
     $this->userModel = $users;
   }
+public function welcome()
+{
+  return view('welcome');
+}
+
   public function postSignUp(Request $request)
   {
     $this->validate($request, [
@@ -54,12 +60,17 @@ class UserController extends Controller
     {
       return redirect()->route('dashboard');
     }
-
+    return redirect('signin');
   }
   public function getDashboard(Request $request)
   {
     $users = $this->userModel->all();
     return view('dashboard', ['data' => $users]);
   }
-
+  public function logout()
+  {
+    Auth::logout();
+    Session::flush();
+    return redirect()->route('home');
+  }
 }

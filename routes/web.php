@@ -15,13 +15,22 @@ Route::group(['middleware' => ['web']], function(){
   ]);
   Route::get('signin', function(){
     return view('login');
+
   });
 
-  Route::get('/', function () {
-      return view('welcome');
-  });
+  Route::get('/', [
+    'uses' => 'UserController@welcome',
+    'as' => 'home'
+  ]);
   Route::get('dashboard', [
     'uses' => 'UserController@getDashboard',
-    'as' => 'dashboard'
+    'as' => 'dashboard',
+    'middleware' => 'auth'
   ]);
+
+  Route::get('logout', [
+    'uses' => 'UserController@logout',
+    'as' => 'logout'
+  ]);
+  
 });
