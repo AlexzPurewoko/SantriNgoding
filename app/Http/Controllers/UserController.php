@@ -19,6 +19,11 @@ class UserController extends Controller
   }
   public function postSignUp(Request $request)
   {
+    $this->validate($request, [
+      'email' => 'required|email|unique:users',
+      'nama' => 'required|max:120',
+      'password' => 'required|min:4'
+    ]);
     $nama = $request['nama'];
     $email = $request['email'];
     $password = bcrypt($request['password']);
@@ -34,6 +39,11 @@ class UserController extends Controller
   }
 
   public function postSignIn(Request $request){
+
+    $this->validate($request, [
+      'email' => 'required',
+      'password' => 'required'
+    ]);
 
     $userdata = array(
     'email' => $request->get('email'),

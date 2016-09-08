@@ -11,7 +11,6 @@ Dashboard Page
       <table class="table">
         <thead>
           <tr class="bg-blue">
-            <th>ID</th>
             <th>Full Name</th>
             <th>Email</th>
           </tr>
@@ -19,7 +18,6 @@ Dashboard Page
         @foreach($data as $user)
           <tbody>
             <tr>
-              <td>{{ $user->id }}</td>
               <td>{{ $user->nama }}</td>
               <td>{{ $user->email }}</td>
             </tr>

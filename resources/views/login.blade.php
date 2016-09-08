@@ -15,15 +15,26 @@ Login Page
 						<h5 class="content-group">Login to your account <small class="display-block">Enter your credentials below</small></h5>
 				</div>
 
-				<div class="form-group has-feedback has-feedback-left">
+        @if(count($errors) > 0)
+          <div class="alert alert-danger">
+            <table>
+              @foreach($errors->all() as $error)
+                <tr>
+                  <td>{{ $error }}</td>
+                </tr>
+              @endforeach
+            </table>
+          </div>
+        @endif
+				<div class="form-group has-feedback has-feedback-left {{ $errors->has('email') ? 'has-error' : '' }}">
 					<input type="text" class="form-control" placeholder="Email" name="email" id="email">
 					<div class="form-control-feedback">
 						<i class="icon-user text-muted"></i>
 					</div>
 				</div>
 
-				<div class="form-group has-feedback has-feedback-left">
-					<input type="text" class="form-control" placeholder="Password" name="password" id="password">
+				<div class="form-group has-feedback has-feedback-left {{ $errors->has('password') ? 'has-error' : '' }}">
+					<input type="password" class="form-control" placeholder="Password" name="password" id="password">
 					<div class="form-control-feedback">
 						<i class="icon-lock2 text-muted"></i>
 					</div>
