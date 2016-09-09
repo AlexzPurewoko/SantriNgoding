@@ -23,12 +23,16 @@ class Authenticate
     public function handle($request, Closure $next)
     {
       if (Auth::guard($guard)->guest()) {
-        if ($request->ajax()) {
+        if ($request->ajax())
+        {
           return response('Unauthorized', 401);
-        }else {
-          return return Redirect::route('signin');
         }
+        else
+        {
+          return redirect()->guest(route('signin'));
+        }
+
       }
-        return $next($request);
+      return $next($request);
     }
 }

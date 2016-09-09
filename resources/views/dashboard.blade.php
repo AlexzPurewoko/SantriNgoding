@@ -24,6 +24,20 @@ Dashboard Page
   </li>
 @endsection
 @section('konten')
+  @if(Session::has('update'))
+    <div class="alert alert-success" role="alert">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="sr-only">Error:</span>
+      {!! Session::get('update') !!}
+    </div>
+  @endif
+  @if(Session::has('deletemsg'))
+    <div class="alert alert-success" role="alert">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="sr-only">Error:</span>
+      {!! Session::get('deletemsg') !!}
+    </div>
+  @endif
   <div class="col-lg-12">
     <div class="table-responsive">
       <table class="table">
@@ -40,14 +54,22 @@ Dashboard Page
               <td>{{ $user->nama }}</td>
               <td>{{ $user->email }}</td>
               <td>
-                 {{-- <i class="glyphicon glyphicon-th-list"></i> --}}
+                <a href="{{ route('edit', $user->id) }}" class="btn-warning btn"><i class="glyphicon glyphicon-pencil"></i></a>
 
-                 <form class="" action="{{ route('delete', $user->id) }}" method="post">{{ method_field('Delete') }}
-                  <button type="submit" class="btn-primary btn"><i class="glyphicon glyphicon-trash"></i></button>
+                <a href="{{ route('delete', $user->id) }}"  class="btn-warning btn"><i class="glyphicon glyphicon-trash"></i></a>
+
+                {{-- <form class="" action="{{ route('delete', $user->id) }}" method="post">{{ method_field('post') }}
+
+                 <button type="submit" class="btn-primary btn"><i class="glyphicon glyphicon-pencil"></i></button>
+                  <input type="hidden" name="_token" value="{{ Session::token() }}">
+                  {{ csrf_field() }}
+                </form>
+                <form class="potition-right" action="{{ route('delete', $user->id) }}" method="post">{{ method_field('Delete') }}
                    <input type="hidden" name="_token" value="{{ Session::token() }}">
                    {{ csrf_field() }}
-						    </form>
-               </td>
+                   <button type="submit" class="btn-primary btn"><i class="glyphicon glyphicon-trash"></i></button>
+						    </form> --}}
+              </td>
             </tr>
           </tbody>
         @endforeach

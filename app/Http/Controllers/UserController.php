@@ -81,4 +81,29 @@ public function welcome()
       return redirect()->route('dashboard');
     }
   }
+  public function edit(Request $request, $id)
+  {
+    $edit = User::find($id);
+    return view('edit')->with('data', $edit);
+  }
+
+  public function pedit(Request $request, $id)
+  {
+    $users = User::find($id);
+
+    $users->nama = $request->Input('nama');
+    $users->email = $request->Input('email');
+    $users->password = $request->Input('password');
+    $users->save();
+
+    return redirect()->route('dashboard')->with('update', ' profile has been updated');
+  }
+
+  public function destroy($id)
+  {
+    $users = User::find($id);
+    $users->delete();
+
+    return redirect()->route('dashboard')->with('deletemsg', ' Profile has been deleted');
+  }
 }

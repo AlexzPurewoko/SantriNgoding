@@ -18,12 +18,27 @@ Route::group(['middleware' => ['web']], function(){
 
   });
 
+  Route::get('login', function(){
+    return view('login');
+
+  });
+
+  Route::get('edit/{id}', [
+    'uses' => 'UserController@edit',
+    'as' => 'edit'
+  ]);
+
+  Route::post('edit/{id}', [
+    'uses' => 'UserController@pedit',
+    'as' => 'edit'
+
+  ]);
+
   Route::get('/', [
     'uses' => 'UserController@welcome',
     'as' => 'home'
   ]);
-  Route::get('dashboard', [
-    'uses' => 'UserController@getDashboard',
+  Route::get('dashboard', ['uses' => 'UserController@getDashboard',
     'as' => 'dashboard',
     'middleware' => 'auth'
   ]);
@@ -32,9 +47,12 @@ Route::group(['middleware' => ['web']], function(){
     echo "admin";
   }]);
 
-  Route::get('logout', [
-    'uses' => 'UserController@logout',
-    'as' => 'logout'
-  ]);
-  Route::delete('/delete/{id}',['uses'=>'UserController@delete', 'as'=>'delete']);
+  Route::get('logout', ['uses' => 'UserController@logout', 'as' => 'logout']);
+
+  Route::get('delete/{id}', ['uses' => 'UserController@destroy', 'as' => 'delete']);
+
+  /* Route::delete('/daelete/{id}', [
+    'uses'=>'UserController@delete',
+     'as'=>'delete'
+   ]); */
 });
