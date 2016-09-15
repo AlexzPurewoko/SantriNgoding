@@ -248,7 +248,7 @@ th {
   .table {
     border-collapse: collapse !important;
   }
-  
+
   .table td,
   .table th {
     background-color: #fff !important;
@@ -335,6 +335,13 @@ th {
 .glyphicon-remove:before {
   content: "\e014";
 }
+.section-landing{position:relative;background-image:url(/assets/images/mainimage.jpg);background-repeat:no-repeat;background-size:cover;background-attachment:fixed;height:550px}
+.clearfix:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0}
+.wrapper{max-width:1000px;margin:0 auto}a{text-decoration:none}img{max-width:100%}li{list-style:none}*,:after,:before{box-sizing:border-box}*{padding:0;margin:0}
+#left-section{position:static}.section-landing
+#left-section .button{font-size:15px}.section-landing h1{font-size:35px}.section-landing h2{font-size:20px}.section-offers .col-33-plain:not(:first-child){font-size:18px;height:180px}.section-offers .col-33-plain:first-child{display:none}.section-blog .article_each:last-child{margin-bottom:0;padding-bottom:10px}.section{padding:0}.section-testimony p{font-size:15px}
+.section-testimony img{width:150px}.section-testimony .row .col-33:first-child{height:auto;padding:0;background:#fff;color:#009cf2}
+
 .glyphicon-zoom-in:before {
   content: "\e015";
 }
@@ -1261,6 +1268,11 @@ h6 .small,
 h1,
 .h1 {
   font-size: 25px;
+}
+.h1_home{
+	font-size: 80px;
+	font-weight: 300;
+	letter-spacing: 3px;
 }
 h2,
 .h2 {
@@ -3066,6 +3078,40 @@ fieldset[disabled] a.btn {
   background-color: #fcfcfc;
   border-color: #ddd;
 }
+
+.btn-tran {
+
+  border-color: #ddd;
+}
+
+.btn2 {
+  padding-left: 16px !important;
+    padding-right: 16px !important;
+    padding-top: 7px !important;
+    padding-bottom: 7px !important;
+    border: 2px solid #27e1ce; /* 27e1ce */
+    color: transparent;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    border-radius: 30px;
+    background-color: #27e1ce;
+}
+
+.btn3 {
+  padding-left: 16px !important;
+    padding-right: 16px !important;
+    padding-top: 7px !important;
+    padding-bottom: 7px !important;
+    border: 2px solid #fff; /* 27e1ce */
+    color: #27e1ce;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    border-radius: 30px;
+    background-color: transparent;
+}
+
 .btn-default:focus,
 .btn-default.focus {
   color: #333;

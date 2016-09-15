@@ -43,6 +43,25 @@
 	border-radius: 50%;
 }
 
+.h1_home{
+	font-size: 80px;
+	font-family: arvo;
+	font-weight: 300;
+	letter-spacing: 6px;
+}
+.cta{
+	padding-left: 16px !important;
+	padding-right: 16px !important;
+	padding-top: 7px !important;
+	padding-bottom: 7px !important;
+	border: 2px solid #27e1ce;
+	color: #FFFFFF;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	-ms-border-radius: 30px;
+	border-radius: 30px;
+}
+
 .icon-home:before{content:"\e900";}
 .icon-home2:before{content:"\e901";}
 .icon-home5:before{content:"\e904";}

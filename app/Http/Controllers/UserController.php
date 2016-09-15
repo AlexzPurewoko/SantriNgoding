@@ -18,10 +18,11 @@ class UserController extends Controller
   {
     $this->userModel = $users;
   }
-public function welcome()
-{
-  return view('welcome');
-}
+
+  public function welcome()
+  {
+  return view('blog');
+  }
 
   public function postSignUp(Request $request)
   {
@@ -105,5 +106,15 @@ public function welcome()
     $users->delete();
 
     return redirect()->route('dashboard')->with('deletemsg', ' Profile has been deleted');
+  }
+
+  public function blog()
+  {
+    return view ('blog');
+  }
+
+  public function profil()
+  {
+    return view ('profil');
   }
 }

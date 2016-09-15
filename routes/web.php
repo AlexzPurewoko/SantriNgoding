@@ -1,38 +1,22 @@
 <?php
 
 Route::group(['middleware' => ['web']], function(){
-  Route::post('signup', [
-    'uses' => 'UserController@postSignUp',
-    'as' => 'signup'
-  ]);
-  Route::get('signup', function(){
-    return view('signup');
-  });
 
-  Route::post('signin', [
-    'uses' => 'UserController@postSignIn',
-    'as' => 'signin'
-  ]);
-  Route::get('signin', function(){
-    return view('login');
+  Route::get('blog', ['uses' => 'UserController@blog', 'as' => 'blog']);
 
-  });
+  Route::post('signup', ['uses' => 'UserController@postSignUp', 'as' => 'signup']);
 
-  Route::get('login', function(){
-    return view('login');
+  Route::get('signup', function(){ return view('signup');});
 
-  });
+  Route::post('signin', ['uses' => 'UserController@postSignIn', 'as' => 'signin']);
 
-  Route::get('edit/{id}', [
-    'uses' => 'UserController@edit',
-    'as' => 'edit'
-  ]);
+  Route::get('signin', function(){ return view('login'); } );
 
-  Route::post('edit/{id}', [
-    'uses' => 'UserController@pedit',
-    'as' => 'edit'
+  Route::get('login', function(){ return view('login'); });
 
-  ]);
+  Route::get('edit/{id}', [ 'uses' => 'UserController@edit', 'as' => 'edit' ]);
+
+  Route::post('edit/{id}', [ 'uses' => 'UserController@pedit', 'as' => 'edit' ]);
 
   Route::get('/', [
     'uses' => 'UserController@welcome',

@@ -6,6 +6,7 @@
 
 <body>
 
+
 	<!-- Main navbar -->
 		@include('include.mainnavbar')
 	<!-- /main navbar -->
@@ -13,6 +14,7 @@
 	<!-- Page container -->
 	<div class="page-container">
 
+		 @yield('konten')
 		<!-- Page content -->
 		<div class="page-content">
 
@@ -30,26 +32,6 @@
 
 				<!-- Content area -->
 				<div class="content">
-
-					<!-- Main charts -->
-					<div class="row">
-
-							@yield('konten')
-
-					</div>
-					<!-- /main charts -->
-
-					<!-- Dashboard content -->
-					<div class="row">
-						<div class="col-lg-8">
-
-						</div>
-
-						<div class="col-lg-4">
-
-						</div>
-					</div>
-					<!-- /dashboard content -->
 
 					<!-- Footer -->
 					@include('include.footer')
