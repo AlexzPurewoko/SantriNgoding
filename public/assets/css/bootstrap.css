@@ -3089,13 +3089,13 @@ fieldset[disabled] a.btn {
     padding-right: 16px !important;
     padding-top: 7px !important;
     padding-bottom: 7px !important;
-    border: 2px solid #27e1ce; /* 27e1ce */
+    border: 2px solid #00BFA5; /* 27e1ce */
     color: transparent;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
     -ms-border-radius: 30px;
     border-radius: 30px;
-    background-color: #27e1ce;
+    background-color: #00BFA5;
 }
 
 .btn3 {
@@ -3103,7 +3103,7 @@ fieldset[disabled] a.btn {
     padding-right: 16px !important;
     padding-top: 7px !important;
     padding-bottom: 7px !important;
-    border: 2px solid #fff; /* 27e1ce */
+    border: 2px solid #00BFA5; /* 27e1ce */
     color: #27e1ce;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
