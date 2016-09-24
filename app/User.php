@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model; */
 
 class User extends Authenticatable // extends Model implements Authenticatable
 {
+
   // use \Illuminate\Auth\Authenticatable;
 
   protected $fillable = [
@@ -16,4 +17,6 @@ class User extends Authenticatable // extends Model implements Authenticatable
   protected $hidden = [
     'password', 'remember_token',
   ];
+
+
 }

@@ -1,6 +1,3 @@
-@extends('layout.master')
-
-@section('konten')
 
 				<!-- Cover area -->
 	<div class="profile-cover">
@@ -885,5 +882,3 @@
 						</div>
 					</div>
 					<!-- /user profile -->
-
-@endsection

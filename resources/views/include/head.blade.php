@@ -12,6 +12,9 @@
 <link href="{{ asset('assets/css/colors.css') }}" rel="stylesheet" type="text/css">
 <!-- /global stylesheets -->
 
+<!-- favicon -->
+<link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}">
+
 <!-- Core JS files -->
 <script type="text/javascript" src="{{ asset('assets/js/plugins/loaders/pace.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/core/libraries/jquery.min.js') }}"></script>

@@ -42,7 +42,7 @@ class UserController extends Controller
 
     $user->save();
 
-    return redirect()->route('signin');
+    return redirect()->route('signup');
   }
 
   public function postSignIn(Request $request){
@@ -66,7 +66,7 @@ class UserController extends Controller
   public function getDashboard(Request $request)
   {
     $users = $this->userModel->all();
-    return view('dashboard', ['data' => $users]);
+    return view('page.dashboard', ['data' => $users]);
   }
   public function logout()
   {
@@ -108,13 +108,4 @@ class UserController extends Controller
     return redirect()->route('dashboard')->with('deletemsg', ' Profile has been deleted');
   }
 
-  public function blog()
-  {
-    return view ('blog');
-  }
-
-  public function profil()
-  {
-    return view ('profil');
-  }
 }
