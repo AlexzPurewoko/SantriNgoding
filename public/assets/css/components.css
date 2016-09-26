@@ -1007,7 +1007,8 @@
 * ---------------------------------------------------------------------------- */
 .footer {
   position: absolute;
-  bottom: 20px;
+  bottom: 0;
+  padding: 10px 20px;
 }
 .footer-fixed {
   position: fixed;

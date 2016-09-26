@@ -63,11 +63,7 @@ class UserController extends Controller
     }
     return redirect('signin');
   }
-  public function getDashboard(Request $request)
-  {
-    $users = $this->userModel->all();
-    return view('page.dashboard', ['data' => $users]);
-  }
+  
   public function logout()
   {
     Auth::logout();

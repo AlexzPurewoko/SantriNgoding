@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Post;
+use Session;
 
 class PostController extends Controller
 {
@@ -15,17 +17,31 @@ class PostController extends Controller
 
   public function create()
   {
-    # code...
+    return view('posts.create');
   }
 
   public function store(Request $request)
   {
-    # code...
+    // validate the DOMCdataSection
+    $this->validate($request, [
+      'title' =>  'required|max:255',
+      'body'  =>  'required'
+    ]);
+
+    // store to the database
+    $post = new Post;
+    $post->title  = $request->title;
+    $post->body   = $request->body;
+
+    $post->save();
+    Session::flash('success', 'The blog post was successfully save !' );
+    return redirect()->route('posts.show', $post->id);
   }
 
   public function show($id)
   {
-    # code...
+    $posts = Post::find($id);
+    return view('posts.show')->with('post', $posts);
   }
 
   public function edit($id)
