@@ -28,4 +28,13 @@ class PageController extends Controller
       return view('page.blog')->with('post', $posts);
     }
 
+    public function about()
+    {
+      return view('page.about');
+    }
+
+    public function contact()
+    {
+      return view('page.contact');
+    }
 }

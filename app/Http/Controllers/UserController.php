@@ -59,16 +59,16 @@ class UserController extends Controller
 
     if (Auth::attempt($userdata))
     {
-      return redirect()->route('dashboard');
+      return redirect()->route('posts.index');
     }
     return redirect('signin');
   }
-  
+
   public function logout()
   {
     Auth::logout();
     Session::flush();
-    return redirect()->route('home');
+    return redirect()->route('welcome');
   }
   public function delete(Request $request, $id)
   {
@@ -78,22 +78,36 @@ class UserController extends Controller
       return redirect()->route('dashboard');
     }
   }
-  public function edit(Request $request, $id)
+
+  public function getEdit(Request $request, $id)
   {
     $edit = User::find($id);
-    return view('edit')->with('data', $edit);
+    return view('page.edit')->with('data', $edit);
   }
 
-  public function pedit(Request $request, $id)
+  public function postEdit(Request $request, $id)
   {
     $users = User::find($id);
 
     $users->nama = $request->Input('nama');
     $users->email = $request->Input('email');
-    $users->password = $request->Input('password');
     $users->save();
 
     return redirect()->route('dashboard')->with('update', ' profile has been updated');
+  }
+
+  public function getPedit(Request $request, $id)
+  {
+    $edit = User::find($id);
+    return view('page.pedit')->with('data', $edit);
+  }
+
+  public function postPedit(Request $request, $id)
+  {
+    $users = User::find($id);
+    $users->password = $request->Input('password');
+    $users->save();
+    
   }
 
   public function destroy($id)

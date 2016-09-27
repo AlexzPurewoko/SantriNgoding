@@ -3,6 +3,7 @@
   SantriNgoding - About
 @endsection
 @section('konten')
+<div class="content">
   <div class="row">
     <div class="col-md-8 panel">
       <h1>About Page</h1>
@@ -11,4 +12,5 @@
       </p>
     </div>
   </div>
+</div>
 @endsection

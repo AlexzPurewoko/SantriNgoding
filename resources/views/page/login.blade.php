@@ -5,14 +5,13 @@ Login Page
 
 @section('konten')
 <!-- Basic layout-->
-
-
+<div class="content">
   <div class="login-container">
 		<form action="{{ route('signin') }}" method="post">
 			<div class="panel panel-body login-form">
 				<div class="text-center">
 					<div class="icon-object border-slate-300 text-slate-300"><i class="icon-reading"></i></div>
-						<h5 class="content-group">Login to your account <small class="display-block">Enter your credentials below</small></h5>
+						<h5 class="content-group">Masuk ke akun <small class="display-block">Masukkan identitas anda</small></h5>
 				</div>
 
         @if(count($errors) > 0)
@@ -41,15 +40,16 @@ Login Page
 				</div>
 
 				<div class="form-group">
-					<button type="submit" class="btn btn-primary btn-block">Sign in <i class="icon-circle-right2 position-right"></i></button>
+					<button type="submit" class="btn btn-primary btn-block">Masuk <i class="icon-circle-right2 position-right"></i></button>
           <input type="hidden" name="_token" value="{{ Session::token() }}">
           {{ csrf_field() }}
 				</div>
 
 				<div class="text-center">
-					Need an account? <a href="{{ route('signup') }}">Sign up</a>
+					Butuh akun? <a href="{{ route('signup') }}">Daftar</a>
 				</div>
 			</div>
 		</form>
   </div>
+</div>
 @endsection

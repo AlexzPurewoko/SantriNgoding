@@ -10,9 +10,18 @@ use Session;
 
 class PostController extends Controller
 {
+  public function __construct() {
+        $this->middleware('auth');
+    }
+
   public function index()
   {
-    # code...
+    // create a variable and store all the blog posts in it from the database
+    $posts = Post::OrderBy('created_at', 'desc')->paginate(10);
+
+    // return a view and pass in the above variable
+    return view('posts.index')->with('posts', $posts);
+
   }
 
   public function create()
@@ -46,16 +55,49 @@ class PostController extends Controller
 
   public function edit($id)
   {
-    # code...
+    $post = Post::find($id);
+    return view('posts.edit')->with('posts', $post);
   }
 
   public function update(Request $request, $id)
   {
-    # code...
+        // Validate the data
+    $post = Post::find($id);
+
+    if ($request->input('slug') == $post->slug) {
+      $this->validate($request, [
+        'title' =>  'required|max:255',
+        'body'  =>  'required'
+      ]);
+    }
+    else {
+      $this->validate($request, [
+        'title' =>  'required|max:255',
+        'slug'  =>  'required|alpha_dash|min:5|max:255|unique:posts,slug',
+        'body'  =>  'required'
+      ]);
+    }
+
+    // Save the data to the database
+    $post = Post::find($id);
+
+    $post->title = $request->input('title');
+    $post->slug  = $request->input('slug');
+    $post->body = $request->input('body');
+    $post->save();
+
+    Session::flash('success', 'the post was successfully updated');
+
+    // redirect to another page
+    return redirect()->route('posts.show', $post->id);
+    // redirect view with flash message to posts.show
   }
 
   public function destroy($id)
   {
-    # code...
+    $post = Post::find($id);
+    $post->delete();
+    Session::flash('success', 'The pos was successfully deleted');
+    return redirect()->route('posts.index');
   }
 }
