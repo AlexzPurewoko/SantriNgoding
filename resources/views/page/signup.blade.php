@@ -15,17 +15,6 @@
         </div>
         <div class="content-divider text-muted form-group"><span>Identitas</span></div>
 
-        @if(count($errors) > 0)
-          <div class="alert alert-danger">
-            <table>
-              @foreach($errors->all() as $error)
-                <tr>
-                  <td>{{ $error }}</td>
-                </tr>
-              @endforeach
-            </table>
-          </div>
-        @endif
         <div class="form-group has-feedback has-feedback-left  {{ $errors->has('nama') ? 'has-error' : '' }}">
           <input type="text" class="form-control" placeholder="Nama lengkap" name="nama" id="nama" value="{{ Request::old('nama') }}">
           <div class="form-control-feedback">

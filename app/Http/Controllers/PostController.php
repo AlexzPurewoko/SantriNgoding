@@ -17,7 +17,7 @@ class PostController extends Controller
   public function index()
   {
     // create a variable and store all the blog posts in it from the database
-    $posts = Post::OrderBy('created_at', 'desc')->paginate(10);
+    $posts = Post::OrderBy('created_at', 'desc')->paginate(5);
 
     // return a view and pass in the above variable
     return view('posts.index')->with('posts', $posts);
@@ -65,7 +65,7 @@ class PostController extends Controller
     $post = Post::find($id);
 
     if ($request->input('slug') == $post->slug) {
-      $this->validate($request, [
+        $this->validate($request, [
         'title' =>  'required|max:255',
         'body'  =>  'required'
       ]);
@@ -73,7 +73,7 @@ class PostController extends Controller
     else {
       $this->validate($request, [
         'title' =>  'required|max:255',
-        'slug'  =>  'required|alpha_dash|min:5|max:255|unique:posts,slug',
+        // 'slug'  =>  'required|alpha_dash|min:5|max:255|unique:posts,slug',
         'body'  =>  'required'
       ]);
     }
@@ -82,7 +82,7 @@ class PostController extends Controller
     $post = Post::find($id);
 
     $post->title = $request->input('title');
-    $post->slug  = $request->input('slug');
+    // $post->slug  = $request->input('slug');
     $post->body = $request->input('body');
     $post->save();
 

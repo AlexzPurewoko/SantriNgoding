@@ -42,7 +42,7 @@ class UserController extends Controller
 
     $user->save();
 
-    return redirect()->route('signup');
+    return redirect()->route('signin');
   }
 
   public function postSignIn(Request $request){
@@ -107,7 +107,7 @@ class UserController extends Controller
     $users = User::find($id);
     $users->password = $request->Input('password');
     $users->save();
-    
+
   }
 
   public function destroy($id)

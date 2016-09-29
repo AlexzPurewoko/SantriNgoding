@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-  SantriNgoding - Edit posting 
+  SantriNgoding - Edit posting
 @endsection
 @section('konten')
 <div class="content">
@@ -9,9 +9,6 @@
     <div class="col-md-8">
       {{ Form::label('title', 'Judul') }}
       {{ Form::text('title', null, ['class' => 'form-control input-lg']) }}
-
-      {{ Form::label('slug', 'Slug', ['class' => 'form-spacing-top']) }}
-      {{ Form::text('slug', null, ['class' => 'form-control']) }}
 
       {{ Form::label('body', 'Konten', ['class' => 'form-spacing-top']) }}
       {{ Form::textarea('body', null, ['class' => 'form-control']) }}

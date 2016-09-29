@@ -18,10 +18,11 @@
 	  <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <img src="/uploads/avatars/{{ Auth::user()->avatar }}" style="width:32px; height:32px; potision:absolute; top:10px; margin-right:5px;  border-radius:50%;"/>
           {{ Auth::user()->nama }} <span class="caret"></span>
         </a>
         <ul class="dropdown-menu">
-          <li><a href="#">Profil</a></li>
+          <li><a href="{{ route('profil') }}">Profil</a></li>
           <li><a href="#">Dashboard</a></li>
           <li><a href="{{ route('posts.index') }}">Posting</a></li>
           <li role="separator" class="divider"></li>

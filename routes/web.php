@@ -4,10 +4,17 @@ Route::group(['middleware' => ['web']], function(){
   // Page
 
   Route::get('/', [ 'uses' => 'PageController@welcome', 'as' => 'welcome' ]);
+  Route::get('show-article/{id}', ['uses' => 'PageController@show', 'as' => 'show-article']);
   Route::get('blog', ['uses' => 'PageController@blog', 'as' => 'blog']);
   Route::get('dashboard', ['uses' => 'PageController@dashboard', 'as' => 'dashboard', 'middleware' => 'auth' ]);
   Route::get('about', ['uses' => 'PageController@about', 'as' => 'about']);
   Route::get('contact', ['uses' => 'PageController@contact', 'as' => 'contact']);
+  Route::get('profil', ['uses' => 'PageController@getProfil', 'as' => 'profil']);
+
+  // foto profil & cover
+  Route::get('gantifoto', ['uses' => 'PageController@gantifoto', 'as' => 'gantifoto']);
+  Route::post('profil', ['uses' => 'PageController@postProfil', 'as' => 'profil']);
+  Route::post('cover', ['uses' => 'PageController@postCover', 'as' => 'cover']);
 
   // User
   Route::post('signup', ['uses' => 'UserController@postSignUp', 'as' => 'signup']);

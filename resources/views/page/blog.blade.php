@@ -12,5 +12,9 @@
     @include('include.article')
   </div>
 </div>
+<hr>
+<div class="text-center">
+  {{ $post->links() }}
+</div>
 </div>
 @endsection

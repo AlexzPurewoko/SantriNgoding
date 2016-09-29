@@ -10,8 +10,12 @@
 	<div class="container">
 
 		@yield('pageheader')
-		@include('include.message')
-		
+		<div class="row" style="margin-top:10px;">
+			<div class="col-md-10 col-md-offset-1">
+				@include('include.message')
+			</div>
+		</div>
+
 		 @yield('konten')
 
 
