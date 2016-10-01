@@ -8,7 +8,7 @@
             <p> Posted on <font style="color: #00BFA5">{{ date('M j, Y', strtotime($post->created_at)) }} </font></p>
           <hr>
           <h6>
-            {{ substr($post->body, 0, 200) }} {{ strlen($post->body) > 200 ? "..." : "" }}
+            {!! substr($post->body, 0, 200) !!} {{ strlen($post->body) > 200 ? "..." : "" }}
             @if(Auth::guest())
               <a href="{{ route('show-article', $post->id) }}">Read More &rarr;</a>
               @else

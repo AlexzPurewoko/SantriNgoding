@@ -13,35 +13,25 @@
           <h5 class="content-group">Change Password Account <small class="display-block">All fields are required</small></h5>
         </div>
       </div>
-        @if(count($errors) > 0)
-          <div class="alert alert-danger">
-            <table>
-              @foreach($errors->all() as $error)
-                <tr>
-                  <td>{{ $error }}</td>
-                </tr>
-              @endforeach
-            </table>
-          </div>
-        @endif
+      
         <div class="content-divider text-muted form-group"><span>Your privacy</span></div>
 
         <div class="form-group has-feedback has-feedback-left  {{ $errors->has('password') ? 'has-error' : '' }}">
-          <input type="password" class="form-control" name="password" id="password" placeholder="Current password">
+          <input type="password" class="form-control" name="oldpassword" id="password" placeholder="Current password">
           <div class="form-control-feedback">
             <i class="glyphicon glyphicon-option-horizontal text-muted"></i>
           </div>
         </div>
 
         <div class="form-group has-feedback has-feedback-left {{ $errors->has('password') ? 'has-error' : '' }}">
-          <input type="password" class="form-control" name="password" id="password" placeholder="New password">
+          <input type="password" class="form-control" name="npassword" id="password" placeholder="New password">
           <div class="form-control-feedback">
             <i class="glyphicon glyphicon-minus text-muted"></i>
           </div>
         </div>
 
         <div class="form-group has-feedback has-feedback-left {{ $errors->has('password') ? 'has-error' : '' }}">
-          <input type="password" class="form-control" name="password" id="password" placeholder="Confirm password">
+          <input type="password" class="form-control" name="cpassword" id="password" placeholder="Confirm password">
           <div class="form-control-feedback">
             <i class="glyphicon glyphicon-minus text-muted"></i>
           </div>

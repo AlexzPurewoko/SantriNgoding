@@ -24,7 +24,7 @@
   			<img src="/uploads/cover/{{ Auth::user()->cover }}" style="width:1000px; height:400px;"/>
   			<form enctype="multipart/form-data" action="{{ route('cover') }}" method="post">
   				<label>Perbarui cover profil</label>
-  				<input type="file" name="avatar">
+  				<input type="file" name="cover">
   				<input type="hidden" name="_token" value="{{ csrf_token() }}">
   				<input type="submit" class="pull-right btn btn-sm btn-primary">
   			</form>

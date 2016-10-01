@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Session;
 use DB;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +34,7 @@ class UserController extends Controller
     ]);
     $nama = $request['nama'];
     $email = $request['email'];
-    $password = bcrypt($request['password']);
+    $password = hash::make($request['password']);
 
     $user = new User();
     $user->nama = $nama;
@@ -104,9 +105,41 @@ class UserController extends Controller
 
   public function postPedit(Request $request, $id)
   {
-    $users = User::find($id);
-    $users->password = $request->Input('password');
-    $users->save();
+
+    $user     = User::find($id);
+    $pass     = User::find($id)->password;
+
+    $old      = $request->Input('oldpassword');
+    $new      = $request->Input('npassword');
+    $con      = $request->Input('cpassword');
+
+    $hold     = hash::make($request['oldpassword']);
+    $hnew     = hash::make($request['npassword']);
+
+
+    if (Hash::check($old, $pass)) {
+      if ($new == $con) {
+        $user->password = $hnew;
+        $user->save();
+
+        Session::flash('success', 'Password Berhasil Dirubah');
+        return redirect()->back();
+      }
+    }
+    else {
+      return redirect()->back();
+      Session::flash('error', 'Silahkan coba lagi');
+    }
+
+
+    //   $user->password = $npass;
+    //   $user->save();
+    //   Session::flash('success', 'Password berhasil diubah');
+    // }
+    // else {
+    //   Session::flash('error', 'Password belum diubah');
+    // }
+
 
   }
 

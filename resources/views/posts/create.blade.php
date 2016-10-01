@@ -13,10 +13,11 @@
         {{ Form::text('title', null, ['class' => 'form-control', 'required' => '']) }}
 
         {{ Form::label('body', 'Body : ') }}
-        {{ Form::textarea('body', null, ['class' => 'form-control', 'placeholder' => 'Write your article here...', 'required' => '' ]) }}
+        {{ Form::textarea('body', null, ['class' => 'form-control', 'placeholder' => 'Write your article here...', 'required' => '','id' => 'editor-full' ]) }}
 
         {{ Form::submit('Create Post', ['class' => 'btn btn-primary btn-block', 'style' => 'margin-top:20px;']) }}
       {!! Form::close() !!}
     </div>
   </div>
+
 @endsection

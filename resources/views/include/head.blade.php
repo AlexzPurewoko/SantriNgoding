@@ -21,6 +21,7 @@
 <script type="text/javascript" src="{{ asset('assets/js/core/libraries/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/core/libraries/bootstrap.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/plugins/loaders/blockui.min.js') }}"></script>
+@include('include.js')
 <!-- /core JS files -->
 
 <!-- Theme JS files -->
@@ -31,7 +32,6 @@
 <script type="text/javascript" src="{{ asset('assets/js/plugins/forms/selects/bootstrap_multiselect.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/plugins/ui/moment/moment.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/plugins/pickers/daterangepicker.js') }}"></script>
-
 <script type="text/javascript" src="{{ asset('assets/js/core/app.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/pages/dashboard.js') }}"></script>
 <!-- /theme JS files -->
