@@ -125,10 +125,14 @@ class UserController extends Controller
         Session::flash('success', 'Password Berhasil Dirubah');
         return redirect()->back();
       }
+      else {
+        Session::flash('error', 'Silahkan coba lagi');
+        return redirect()->back();
+      }
     }
     else {
-      return redirect()->back();
       Session::flash('error', 'Silahkan coba lagi');
+      return redirect()->back();
     }
 
 

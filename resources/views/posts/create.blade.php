@@ -8,6 +8,21 @@
     <div class="col-md-8 col-md-offset-2 ">
       <h1>Create new Post</h1>
       <hr>
+
+      {{-- <form class="" action="{{ route('posts.store') }}" method="post">
+        <label>Title :</label>
+        <input type="text" name="text" class="form-control" value="">
+
+        <label>Body :</label>
+
+        <div id="summernote"></div>
+        <script>
+         $(document).ready(function() {
+             $('#summernote').summernote();
+         });
+         </script>
+
+      </form> --}}
       {!! Form::open(['route' => 'posts.store', 'data-parsley-validate' => '']) !!}
         {{ Form::label('title', 'Title : ') }}
         {{ Form::text('title', null, ['class' => 'form-control', 'required' => '']) }}
@@ -19,5 +34,7 @@
       {!! Form::close() !!}
     </div>
   </div>
+
+
 
 @endsection
