@@ -1,4 +1,4 @@
-<div class="navbar navbar-inverse">
+<div class="navbar navbar-inverse" >
   <div class="navbar-header">
     @if (Auth::guest())
     <a class="navbar-brand" href="{{ route('welcome') }}"><img src="{{ asset('assets/images/logo_light.png') }}" alt=""></a>

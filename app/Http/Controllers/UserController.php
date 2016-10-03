@@ -62,6 +62,7 @@ class UserController extends Controller
     {
       return redirect()->route('posts.index');
     }
+    Session::flash('error', 'Silahkan coba lagi');
     return redirect('signin');
   }
 

@@ -10,7 +10,6 @@
 <link href="{{ asset('assets/css/core.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('assets/css/components.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('assets/css/colors.css') }}" rel="stylesheet" type="text/css">
-@yield('css')
 <!-- /global stylesheets -->
 
 <!-- favicon -->
@@ -33,7 +32,7 @@
 <script type="text/javascript" src="{{ asset('assets/js/plugins/ui/moment/moment.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/plugins/pickers/daterangepicker.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/core/app.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/js/pages/dashboard.js') }}"></script>
+{{-- <script type="text/javascript" src="{{ asset('assets/js/pages/dashboard.js') }}"></script> --}}
 <!-- /theme JS files -->
 
 {{-- font --}}
