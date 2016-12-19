@@ -13,7 +13,7 @@
         {{ Form::text('title', null, ['class' => 'form-control', 'required' => '']) }}
 
         {{ Form::label('body', 'Body : ') }}
-        <div id="summernote"><p>Hello Summernote</p></div>
+        {{ Form::textarea('body', null, ['id' => 'summernote']) }}
         <script>
           $(document).ready(function() {
               $('#summernote').summernote();
